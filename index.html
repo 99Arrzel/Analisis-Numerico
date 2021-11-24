@@ -1,95 +1,675 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 
-  <head>
-    <!-- Bootstrap -->
-    <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="style.css">
-    <script defer src="bower_components/font-awesome-5/js/solid.js"></script>
-    <script defer src="bower_components/font-awesome-5/js/fontawesome.js"></script>
-    <script src="bower_components/jquery/dist/jquery.min.js"></script>
-    <script src="bower_components/bootstrap/dist/js/bootstrap.bundle.js"></script>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Métodos númericos con JS</title>
-  </head>
+<head>
+  <!-- Bootstrap -->
+  <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="bower_components/font-awesome-5/js/solid.js"></script>
+  <script defer src="bower_components/font-awesome-5/js/fontawesome.js"></script>
+  <script src="bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="bower_components/bootstrap/dist/js/bootstrap.bundle.js"></script>
+  <script src="https://unpkg.com/mathjs/lib/browser/math.js"></script>
+  <script src="bower_components/nerdamer-1.1.12/nerdamer.core.js"></script>
+  <script src="bower_components/nerdamer-1.1.12/Algebra.js"></script>
+  <script src="bower_components/nerdamer-1.1.12/Calculus.js"></script>
+  <script src="bower_components/nerdamer-1.1.12/Solve.js"></script>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Métodos númericos con JS</title>
+</head>
 
 <body>
   <div class="d-flex" id="wrapper">
     <!-- Sidebar-->
     <div class="border-end bg-white" id="sidebar-wrapper">
-      <div class="list-group list-group-flush">
-        <a class="list-group-item list-group-item-action list-group-item-primary">Introducción</a>
-          <a class="list-group-item list-group-item-action list-group-item-primary" href="#s_numeracion">Sistemas de numeración</a>
-          <a class="list-group-item list-group-item-action list-group-item-secondary" href="#binario">Binario</a>
-          <a class="list-group-item list-group-item-action list-group-item-secondary" href="#!">Octal</a>
-          <a class="list-group-item list-group-item-action list-group-item-secondary" href="#!">Hexadecimal</a>
-          <a class="list-group-item list-group-item-action list-group-item-primary" href="#!">Errores</a>
-          <a class="list-group-item list-group-item-action list-group-item-primary" href="#!">Matrices</a>
-          <a class="list-group-item list-group-item-action list-group-item-primary" href="#!">Ecuaciones no lineales</a>
-          <a class="list-group-item list-group-item-action list-group-item-primary" href="#!">Sistemas de ecuaciones lineales</a>
-          <a class="list-group-item list-group-item-action list-group-item-primary" href="#!">Sistemas de ecuaciones no lineales</a>
-          <a class="list-group-item list-group-item-action list-group-item-primary" href="#!">Integración númerica</a>
-          <a class="list-group-item list-group-item-action list-group-item-primary" href="#!">Derivación númerica</a>
-          <a class="list-group-item list-group-item-action list-group-item-primary" href="#!">Diferencia finita</a>
-          <a class="list-group-item list-group-item-action list-group-item-primary" href="#!">Interpolación</a>
-          <a class="list-group-item list-group-item-action list-group-item-primary" href="#!">Regresion</a>
-          <a class="list-group-item list-group-item-action list-group-item-primary" href="#!">Sobre mi</a>
+      <div class="list-group list-group-flush position-fixed" style="width: 10%">
+        <a class="
+              list-group-item list-group-item-action list-group-item-primary
+            ">Introducción</a>
+        <a class="
+              list-group-item list-group-item-action list-group-item-primary
+            " href="#s_numeracion">Sistemas de numeración</a>
+        <a class="
+              list-group-item list-group-item-action list-group-item-secondary
+            " href="#binario">Binario</a>
+        <a class="
+              list-group-item list-group-item-action list-group-item-secondary
+            " href="#!">Octal</a>
+        <a class="
+              list-group-item list-group-item-action list-group-item-secondary
+            " href="#!">Hexadecimal</a>
+        <a class="
+              list-group-item list-group-item-action list-group-item-primary
+            " href="#!">Errores</a>
+        <a class="
+              list-group-item list-group-item-action list-group-item-primary
+            " href="#!">Matrices</a>
+        <a class="
+              list-group-item list-group-item-action list-group-item-primary
+            " href="#!">Ecuaciones no lineales</a>
+        <a class="
+              list-group-item list-group-item-action list-group-item-primary
+            " href="#!">Sistemas de ecuaciones lineales</a>
+        <a class="
+              list-group-item list-group-item-action list-group-item-primary
+            " href="#!">Sistemas de ecuaciones no lineales</a>
+        <a class="
+              list-group-item list-group-item-action list-group-item-primary
+            " href="#!">Integración númerica</a>
+        <a class="
+              list-group-item list-group-item-action list-group-item-primary
+            " href="#!">Derivación númerica</a>
+        <a class="
+              list-group-item list-group-item-action list-group-item-primary
+            " href="#!">Diferencia finita</a>
+        <a class="
+              list-group-item list-group-item-action list-group-item-primary
+            " href="#!">Interpolación</a>
+        <a class="
+              list-group-item list-group-item-action list-group-item-primary
+            " href="#!">Regresion</a>
+        <a class="
+              list-group-item list-group-item-action list-group-item-primary
+            " href="#!">Sobre mi</a>
       </div>
     </div>
     <!-- Page content wrapper-->
-    <div id="page-content-wrapper">
-
+    <div id="page-content-wrapper" style="margin-left: 10%">
       <div class="container-fluid">
-        <div class="row">
-          <div class="col-md-12">
-            <p class="fs-1">Análisis númerico</p>
-            <p>Es una rama de las mates que se encarga de diseñar algoritmos para simular aproximaciones de solución a problemas de análisis matemático.</p>
-          </div>
+        <div class="col-md-12">
+          <p class="fs-1"><strong>Análisis númerico</strong></p>
+          <p>
+            Es una rama de las mates que se encarga de diseñar algoritmos para
+            simular aproximaciones de solución a problemas de análisis
+            matemático.
+          </p>
         </div>
-        <div class="row">
-          <div class="col-md-12">
-            <p class="fs-2">Introducción</p>
-            <p>Este curso abarcará problemas de análisis númerico, algunas cosas las he visto en la universidad en una materia denominada métodos númericos y otras por pura curiosidad, resolveremos problemas de análisis, intentaré que todo esté en una sola página porque me parece más didactivo, además, intentaré graficar el porque de las aproximaciones que sacamos, el objetivo es que para el lector sea más sencillo aprender este tema.</p>
-          </div>
+        <div class="col-md-12">
+          <p class="fs-2"><strong>Introducción</strong> </p>
+          <p>
+            Este curso abarcará problemas de análisis númerico, algunas cosas
+            las he visto en la universidad en una materia denominada métodos
+            númericos y otras por pura curiosidad, resolveremos problemas de
+            análisis, intentaré que todo esté en una sola página porque me
+            parece más didactivo, además, intentaré graficar el porque de las
+            aproximaciones que sacamos, el objetivo es que para el lector sea
+            más sencillo aprender este tema.
+          </p>
         </div>
-        <div class="row">
-          <div class="col-md-12">
-            <p id="s_numeracion" class="fs-2">Sistemas de númeración</p>
-            <p>Los sistemas de numeración son nuestra base para realizar operaciones aritmeticas, ya sabes, sumar, restar, multiplicar y dividir, la diferencia es que la mayoría de nosotros solo sabe hacerlo en el sistema de númeración decimal, mi trabajo es enseñarte estas operaciones para los sistemas binario, octal y hexadecimal.</p>
-          </div>
+        <div class="col-md-12">
+          <p id="s_numeracion" class="fs-2"><strong>Sistemas de númeración</strong></p>
+          <p>
+            Los sistemas de numeración son nuestra base para realizar
+            operaciones aritmeticas, ya sabes, sumar, restar, multiplicar y
+            dividir, la diferencia es que la mayoría de nosotros solo sabe
+            hacerlo en el sistema de númeración decimal, mi trabajo es
+            enseñarte estas operaciones para los sistemas binario, octal y
+            hexadecimal.
+          </p>
         </div>
-        <div class="row">
+        <div class="col-md-12">
+          <p id="binario" class="fs-3"><strong>Binario</strong></p>
+          <p>
+            Este sistema se compone, como su nombre lo indica, de 2 números,
+            el 0 y 1, lo usamos en las computadoras más que nada, no te
+            servirá de mucho saber esto pero es interesante saber como se
+            cuenta con estos números, que también te ayudará a entender los
+            tipos de información (como int32?) y como estas se relacionan con
+            los bits, que simplemente es una unidad en este sistema.
+          </p>
+          <p>
+            Tomaremos una aproximación a uno de los sistemas que ya conoces,
+            el decimal, la conversión la realizaremos con una tablita con la
+            que aprendí.
+          </p>
+          <img src="img/tabla1.jpg" class="aimg" alt="tabla decimal a binario" />
+          <p>
+            Como te puedes dar cuenta, el 1 en este sistema indica un valor y
+            para representar un valor más grande simplemente recorremos el uno
+            a la izquierda, así podemos representar su igual en decimal, que
+            es el sistema que ya conoces
+          </p>
+          <p id="binarioSuma" class="fs-4"><u>Suma en binario</u></p>
+          <p>
+            Para realizar una suma, haremos lo mismo que se hace en un sistema
+            decimal, sumar XD.
+          </p>
+          <p>
+            Pero primero debes conocer 4 equivalencias básicas para la suma en
+            binario.
+          </p>
+          <img src="img/tabla2.jpg" class="aimg" alt="tabla reglas basicas suma binario" />
+          <p>Y listo, ya sabes sumar en binario 👍👍👍</p>
+          <p>
+            Como podes darte cuenta, es así de sencillo, ahora como un ejemplo
+            te dejo la siguiente imagen donde podes apreciar una suma sencilla
+          </p>
+          <img src="img/SumaBinaria.jpg" class="aimg" alt="suma en binario" />
+          <p id="binarioResta" class="fs-4"><u>Resta en binario</u></p>
+          <p>
+            Para restar en binario es sencillo, es como la suma, necesitas una
+            tabla de reglas, pero acá tendrás un acarreo negativo.
+          </p>
+          <img src="img/REGLASRESTA.jpg" class="aimg" alt="tabla reglas basicas resta binario" />
+          <p>Acá te dejo un ejemplo para que veas como funciona</p>
+          <img src="img/RestaBinaria.jpg" class="aimg" alt="resta en binario" />
+          <p id="binarioMulti" class="fs-4"><u>Multiplicación en binario</u></p>
+          <p>
+            Al igual que en la suma y la resta, acá tenemos 4 reglas básicas,
+            te las dejo en una tabla
+          </p>
+          <p>
+            En fin, se multiplica igual que los decimales pero cuando hagas la
+            suma, recuerda las reglas de la suma binaria
+          </p>
+        </div>
+        <!-- Falta muchas cosas arriba. -->
+        <div class="col-md-12">
+          <p id="s-ecuaciones-lineales" class="fs-2">
+            <strong>Sistemas de ecuaciones lineales</strong>
+          </p>
+          <p>¿Qué son las ecuaciones lineales?</p>
+          <!-- Completar esto -->
           <div class="col-md-12">
-            <p id="binario" class ="fs-3">Binario</p>
-            <p>Este sistema se compone, como su nombre lo indica, de 2 números, el 0 y 1, lo usamos en las computadoras más que nada, no te servirá de mucho saber esto pero es interesante saber como se cuenta con estos números, que también te ayudará a entender los tipos de información (como int32?) y como estas se relacionan con los bits, que simplemente es una unidad en este sistema.</p>
-            <p>Tomaremos una aproximación a uno de los sistemas que ya conoces, el decimal, la conversión la realizaremos con una tablita con la que aprendí.</p>
-            <img src="img/tabla1.jpg" class="aimg" alt="tabla decimal a binario">
-            <p>Como te puedes dar cuenta, el 1 en este sistema indica un valor y para representar un valor más grande simplemente recorremos el uno a la izquierda, así podemos representar su igual en decimal, que es el sistema que ya conoces</p>
-            <p id="binarioSuma" class ="fs-4">Suma en binario</p>
-            <p>Para realizar una suma, haremos lo mismo que se hace en un sistema decimal, sumar XD.</p>
-            <p>Pero primero debes conocer 4 equivalencias básicas para la suma en binario.</p>
-            <img src="img/tabla2.jpg" class="aimg" alt="tabla reglas basicas suma binario">
-            <p>Y listo, ya sabes sumar en binario 👍👍👍</p>
-            <p>Como podes darte cuenta, es así de sencillo, ahora como un ejemplo te dejo la siguiente imagen donde podes apreciar una suma sencilla</p>
-            <img src="img/SumaBinaria.jpg" class="aimg" alt="suma en binario">
-            <p id="binarioResta" class ="fs-4">Resta en binario</p>
-            <p>Para restar en binario es sencillo, es como la suma, necesitas una tabla de reglas, pero acá tendrás un acarreo negativo.</p>
-            <img src="img/REGLASRESTA.jpg" class ="aimg" alt="tabla reglas basicas resta binario">
-            <p>Acá te dejo un ejemplo para que veas como funciona</p>
-            <img src="img/RestaBinaria.jpg" class="aimg" alt="resta en binario">
-            <p id="binarioMulti"class ="fs-4">Multiplicación en binario</p>
-            <p>Al igual que en la suma y la resta, acá tenemos 4 reglas básicas, te las dejo en una tabla</p>
-            <p>En fin, se multiplica igual que los decimales pero cuando hagas la suma, recuerda las reglas de la suma binaria</p>
-
+            <p id="gaussJordanTitulo" class="fs-3">
+              <u>Método de eliminación de Gauss por pivote</u>
+            </p>
+            <p>
+              ¿Qué es? Es un método para resolver sistemas de ecuaciones
+              lineales, también se llama reducción de fila 👍(Row Reduccion en
+              inglés).
+            </p>
+            <p>
+              ¿En qué consiste? Bueno, es simplemente sacar los coeficientes
+              de tu sistema de ecuaciones y operar entre ellos, podes hacer 3
+              procedimientos.
+            </p>
+            <ol>
+              <li>Intercambiar 2 filas.</li>
+              <li>Multiplicar por un número que no sea 0 obviamente.</li>
+              <li>Sumar el multiplo de una fila a otra fila</li>
+            </ol>
+            <p>
+              Ok, opero con eso, pero no entiendo, ¿qué forma tengo que darle?
+              Bueno, es bastante sencillo en realidad, lo que tenes que hacer
+              es formar una matriz escalonada reducida, sencillo 👍.
+            </p>
+            <p>
+              Ok, ¿Qué es una matriz escalonada reducida? Bueno, empecemos por
+              que es una matriz escalonada, una matriz escalonada es
+              simplemente una matriz
+              <strong>donde los renglones de la parte inferior de la matriz están
+                en 0</strong>, de manera que hace como una escalerita de 0s 😯🤯🤯🤯🤯
+            </p>
+            <!-- Poner la foto de 2 matrices, la escalonada y la escalonada reducida 👍👍👍 -->
+            <p>Tiene la siguiente forma una matriz escalonada.</p>
+            <p>Y esta es una matriz escalonada reducida.</p>
+            <p>
+              Los procedimientos se realizan de esta manera.
+              <!-- Acá debo poner un gif de los 3 procedimientos, ya que es para dummies... -->
+            </p>
+            <hr />
+            <p>
+              Podes ver mi algoritmo en el código fuente, o sea,
+              <a href="https://github.com/CraniumAdamantium/Analisis-Numerico/tree/gh-pages">aqui</a>
+            </p>
+            <p id="gaussMensaje">
+              Sin mas, resolvamos con el método de Gauss
+            </p>
+            <div id="solucionGaussPivote">
+              <p>Ingresa el alto y ancho de la matriz</p>
+              <div class="input-group mb-3">
+                <span class="input-group-text">X</span>
+                <input type="number" id="altoGauss" type="text" class="form-control" placeholder="alto"
+                  aria-label="alto" />
+                <span class="input-group-text">Y</span>
+                <input type="number" id="anchoGauss" type="text" class="form-control" placeholder="ancho"
+                  aria-label="ancho" />
+                <button class="btn btn-success" onclick="crearMatriz('Gauss', 'resolucionGauss')">
+                  Generar Matriz
+                </button>
+              </div>
+              <div id="resolucionGauss">
+              </div>
+            </div>
+          </div>
+          <div class="col-md-12">
+            <hr>
+            <p id="JacobiTitulo" class="fs-3"><u>Método de Jacobi</u></p>
+            <p>¿Qué es el método de Jacobi?</p>
+            <p>Bueno, es un método iterativo para "determinar" la solución de un sistema de ecuaciones con
+              características de matriz dominante diagonal, es decir, el número de la diagonal es mayor o igual a la
+              suma de los número en su respectiva fila y es cuadrada.</p>
+            <p>¿Cómo se resuelve?</p>
+            <p>Bueno, simplemente hay que entender que la matriz se compone de 3 partes, (Como la formula indica, A = D
+              + L + U), donde A es la matriz, D es la diagonal, L es la parte inferior de la diagonal, y U es la parte
+              superior de la diagonal. Después de eso solo despejamos una x y vamos iterando con la matriz inicial</p>
+            <div id="solucionJacobi">
+              <p>Ingresa el alto y ancho de la matriz</p>
+              <div class="input-group mb-3">
+                <span class="input-group-text">X</span>
+                <input type="number" id="altoJacobi" type="text" class="form-control" placeholder="alto"
+                  aria-label="alto" />
+                <span class="input-group-text">Y</span>
+                <input type="number" id="anchoJacobi" type="text" class="form-control" placeholder="ancho"
+                  aria-label="ancho" />
+                <button class="btn btn-success"
+                  onclick="chequearMatrizCuadrada('Jacobi'), crearMatriz('Jacobi', 'resolucionJacobi'), crearAproximacion('Jacobi', 'aproxJacobi')">
+                  Generar Matriz
+                </button>
+              </div>
+              <div id="aproxJacobi">
+              </div>
+              <div id="resolucionJacobi">
+                <div id="jacobiPuesto"></div>
+              </div>
+              <div id="iteracionesJacobi">
+              </div>
+            </div>
+          </div>
+          <div class="col-md-12">
+            <hr>
+            <p id="GaussSeidelTitulo" class="fs-3"><u>Método de Gauss-Seidel</u></p>
+            <p>¿Qué es el método de Gauss-Seidel?</p>
+            <p>Es un método iterativo igual que el de Jacobi, sirve apra resolver sistemas de ecuaciones lineales(igual)
+            </p>
+            <p>¿En qué se caracterisa? Bueno, necesitas una matriz cuadrada y al igual que en Jacobi, necesitas que la
+              matriz sea diagonalmente dominante para garantizar la convergencia.</p>
           </div>
         </div>
       </div>
     </div>
   </div>
+  </div>
 </body>
 
 </html>
 <script>
+  let chequearSiMatrizEsDominante = (array) => {
+    for(let i = 0; i < array.length; i++){
+      for(let j = 0; j < array[i].length-1; j++){ //-1 porque vamos a pasar el array con los = y no quiero chequear eso
+        if(i == j)
+        {
+            let mayorALaDerecha = 0;
+            for(let k = j+1; k < array[i].length-1; k++){ //Chequeo todo a la derecha, menos el último
+              if(array[i][k] > mayorALaDerecha){
+                mayorALaDerecha = array[i][k];
+              }
+            }
+            if(mayorALaDerecha >= array[i][j]){
+              console.log("La matriz no es dominante.")
+              console.log(`Con valor ${mayorALaIzquierda} es mayor o igual que ${array[i][j]}`);
+              return false;
+            }
+            let mayorALaIzquierda = 0;
+            if(j > 0){
+              for(let k = j-1; k >= 0; k--){
+                if(array[i][k] > mayorALaIzquierda){ //Chequeo todo a la izquierda, si es mayor a 0 claro.
+                  mayorALaIzquierda = array[i][k];
+
+                }
+              }
+            }
+            if(mayorALaIzquierda >= array[i][j]){
+              console.log("La matriz no es dominante.")
+              console.log(`Con valor ${mayorALaIzquierda} es mayor o igual que ${array[i][j]}`);
+              return false;
+            }
+        }
+      }
+    }
+    console.log("La matriz si es dominante.")
+    return true;
+  }
+  // let matrizPrueba = [[10, 8, 9, 11],
+  //                     [7, 8, 2, 30],
+  //                     [3, 1, 9, 40]];
+  // console.log(chequearSiMatrizEsDominante(matrizPrueba));
+
+
+
+  let chequearMatrizCuadrada = (nombre) => {
+    if ($("#alto" + nombre).val() - $("#ancho" + nombre).val() != -1) {
+      alert("Advertencia, para " + nombre + " la matriz debe ser cuadrada.");
+      return;
+    }
+  }
+  let Gauss_Seidel = (A, b, maxIteraciones) => {
+    //Para obtener N
+
+  }
+
+  let extraerEcuacionArrayAString = (array) => {
+    let nArray = array.map((element, i) => {
+      if (element != array[array.length - 1]) {
+        if (element > 0) {
+          return "+" + element + "x" + (i + 1);
+        }
+        if (element < 0) {
+          return element + "x" + (i + 1);
+        }
+        if (element == 0) {
+          return;
+        }
+
+      }
+      return "=" + element;
+    }
+    )
+    return nArray.join('')
+  }
+  let despejarEcuacion = (ecuacion, variableADespejar) => {
+    return nerdamer.solveEquations(ecuacion, variableADespejar)[0].text();
+  }
+  let operarEcuacion = (ecuacion, arraySustitucion) => {
+    return math.evaluate(ecuacion, arraySustitucion);
+  }
+  let formatearScope = (aproximacion) => {
+    let obj = {};
+    for (let i = 0; i < aproximacion.length; i++) {
+      let key = "x" + (i + 1);
+      obj[key] = aproximacion[i];
+    }
+    return obj;
+  }
+  let procesarJacobi = () => {
+    try {
+      if (!$("#iteracionesJacobi").is(':empty')) {
+        $("#iteracionesJacobi").empty();
+      }
+      let aproximacion = formatearScope(getAproximacion('Jacobi'));
+      console.log(aproximacion);
+      let miArray = getArray('Jacobi')
+      let error = parseFloat("1e-4");
+      let maxIteraciones = 100;
+      let iteraciones = 0;
+      ///zzzz
+
+      //Empiezo una nueva forma de jacobi...
+      let arrayEcuaciones = [];
+      for (let i = 0; i < miArray.length; i++) {
+        let ecuacion = extraerEcuacionArrayAString(miArray[i]);
+        console.log(ecuacion);
+        arrayEcuaciones.push(despejarEcuacion(ecuacion, "x" + (i + 1)));
+      }
+
+      console.log(arrayEcuaciones);
+      let scope = aproximacion;
+      let todasLasIteraciones = [];
+      todasLasIteraciones.push(scope);
+      while (iteraciones < maxIteraciones) {
+        let nuevo = [];
+        for (let i = 0; i < arrayEcuaciones.length; i++) {
+          nuevo.push(operarEcuacion(arrayEcuaciones[i], scope))
+        }
+        nuevo = formatearScope(nuevo);
+        todasLasIteraciones.push(nuevo);
+        scope = nuevo;
+        console.log(scope);
+        iteraciones++;
+
+        if (error > (todasLasIteraciones[iteraciones].x1 - todasLasIteraciones[iteraciones - 1].x1)) {
+          $("<p>").text("Error máximo alcanzado (1e-4)").appendTo("#iteracionesJacobi")
+          break;
+        }
+      }
+
+      for (let i = 0; i < todasLasIteraciones.length; i++) {
+        console.log("xD");
+        console.log(todasLasIteraciones[i]);
+        let estaIteracion = "";
+        for (const [key, value] of Object.entries(todasLasIteraciones[i])) {
+          estaIteracion += ` ${key}: ${value} `;
+        }
+        $("<p>").html(`Iteración número ${i}: Resultado: ${estaIteracion}`).appendTo("#iteracionesJacobi")
+        if (i > 4) break;
+      }
+      let ultimaIteracion = "";
+      for (const [key, value] of Object.entries(todasLasIteraciones[todasLasIteraciones.length - 1])) {
+        ultimaIteracion += `${key}: ${value}`;
+      }
+      $("<p>").html(`Última iteración: ${iteraciones}`).appendTo("#iteracionesJacobi");
+      $("<span>")
+        .attr({
+          class: "badge bg-success",
+        })
+        .text("SOLUCIONADO 👍")
+        .appendTo("#iteracionesJacobi");
+      $("<p>").html(ultimaIteracion).appendTo("#iteracionesJacobi");
+    } catch (err) {
+      $("<p>").text("Este sistema es irresolvible por el método de Jacobi.").appendTo("#iteracionesJacobi");
+        $("<span>")
+        .attr({
+          class: "badge bg-danger",
+        })
+        .text("SIN SOLUCION 😢")
+        .appendTo("#iteracionesJacobi");
+
+    }
+  }
+
+
+  let getAproximacion = (nombre) => {
+    let array = [];
+    for (let i = 0; i < globales.alto; i++) {
+      if ($("#aproximacion" + nombre + i).val().length != 0) {
+        array.push(parseFloat($("#aproximacion" + nombre + i).val()));
+      }
+      else {
+        alert("Tus aproximaciones no pueden ser nulas.");
+        return;
+      }
+    }
+    return array;
+  }
+  let getArray = (nombre) => {
+    let miArray = [];
+    for (let i = 0; i < globales.alto; i++) {
+      let arrayValores = [];
+      for (let j = 0; j < globales.ancho; j++) {
+        if ($("#" + i + "" + j + nombre).val().length === 0) {
+          alert("No puede haber espacios vacios");
+          return;
+        }
+        let actual = parseFloat($("#" + i + "" + j + nombre).val());
+        arrayValores.push(actual);
+      }
+      miArray.push(arrayValores);
+    }
+    return miArray
+  }
+  let crearAproximacion = (nombre, donde) => {
+    if (!$("#" + donde).is(':empty')) {
+      $("#" + donde).empty();
+    }
+    $("<p>").html("Introduce una aproximacion").appendTo("#" + donde);
+    $("<div>")
+      .attr({
+        class: "input-group mb-3",
+        id: function () {
+          return "aproximacion" + nombre;
+        },
+      })
+      .appendTo("#" + donde);
+    for (let i = 0; i < $("#alto" + nombre).val(); i++) {
+      $("<input>")
+        .attr({
+          id: function () {
+            return "aproximacion" + nombre + i;
+          },
+          type: "number",
+          class: "form-control",
+          placeholder: function () {
+            return "x " + i;
+          },
+        }).val("0")
+        .appendTo("#aproximacion" + nombre);
+    }
+  }
+  // ===================================== Gauss con pivote
+  const globales = {};
+  let crearMatriz = (nombre, donde) => {
+    if (!$("#" + donde).is(':empty')) {
+      $("#" + donde).empty();
+    }
+    $("<p>").html("Introduce una matriz").appendTo("#" + donde);
+    globales.alto = $("#alto" + nombre).val();
+    globales.ancho = $("#ancho" + nombre).val();
+    for (let i = 0; i < globales.alto; i++) {
+      $("<div>")
+        .attr({
+          class: "input-group mb-3",
+          id: function () {
+            return "fila" + i + nombre;
+          },
+        })
+        .appendTo("#" + donde);
+      for (let j = 0; j < globales.ancho; j++) {
+        $("<input>")
+          .attr({
+            id: function () {
+              return i + "" + j + nombre;
+            },
+            type: "number",
+            class: "form-control",
+            placeholder: function () {
+              return "x " + i + " | y " + j;
+            },
+          })
+          .appendTo("#fila" + i + nombre);
+        if (j != globales.ancho - 1) {
+          if (j == globales.ancho - 2) {
+            $("<span>")
+              .text("=")
+              .attr({
+                class: "input-group-text",
+              })
+              .appendTo("#fila" + i + nombre);
+          } else {
+            $("<span>")
+              .text("+")
+              .attr({
+                class: "input-group-text",
+              })
+              .appendTo("#fila" + i + nombre);
+          }
+        }
+      }
+      $("<br>").appendTo("#" + donde);
+      $("<br>").appendTo("#" + donde);
+    }
+    $("<button>")
+      .attr({
+        class: "btn btn-success",
+        onclick: "procesar" + nombre + "()",
+      })
+      .text("Calcular")
+      .appendTo("#" + donde);
+  };
+  let procesarGauss = () => {
+    let miArray = getArray('Gauss');
+    let resolverMio = (matriz) => {
+      let pivote = 0;
+      let filas = matriz.length;
+      let columnas = matriz[0].length;
+      for (let i = 0; i < filas; i++) {
+        if (columnas <= pivote) return matriz; //tenemos un limite
+        let cualFila = i; //Debemos seleccionar una fila de todas, pero cual?
+        //Mientras sea 0 el punto de partida, esto solo se ejecuta si nuestro primer valor es 0
+        while (matriz[cualFila][pivote] === 0) {
+          console.log(matriz);
+          cualFila++;
+          if (filas === cualFila) {
+            //Si ya pasamos todas las filas...
+            cualFila = i; //Dejamos la fila actual
+            pivote++; //Movemos el pivote a la siguiente fila
+            if (columnas === pivote) return matriz; //Si ya iteramos y el pivote está en la ultima columna, retornamos nomás.
+          }
+        }
+        //creamos unos temporales
+        let filaOperada = matriz[i];
+        let filaOperada2 = matriz[cualFila];
+        //Cambiamos de lugar recién
+        matriz[i] = filaOperada2; //cambiamos las filas de lugar
+        matriz[cualFila] = filaOperada; //cambiamos las filas de lugar
+        let posPivote = matriz[cualFila][pivote]; //Creamos la posición del pivote en nuestra fila
+        for (let j = 0; j < columnas; j++) {
+          matriz[cualFila][j] /= posPivote; //iteramos sobre las columnas y las dividimos sobre el valor del pivote
+        }
+        for (let j = 0; j < filas; j++) {
+          if (i == j) continue; //No quiero tocar los valores de la matriz escalonada reducida.
+          posPivote = matriz[j][pivote]; //Asignamos la pospivote a la fila j
+          for (let z = 0; z < columnas; z++) {
+            //iteramos por todas las columnas
+            matriz[j][z] -= posPivote * matriz[i][z]; //le damos un valor, que es igual al mismo menos nuestro pivote * iz
+          }
+        }
+        pivote++;
+      }
+      return matriz;
+    };
+    //Establecemos los valores de la matriz
+    try {
+      let matrizResuelta = resolverMio(miArray);
+      console.log(matrizResuelta);
+      for (let i = 0; i < globales.alto; i++) {
+        for (let j = 0; j < globales.ancho; j++) {
+          $("#" + i + "" + j + "Gauss").val(matrizResuelta[i][j]);
+          $("#" + i + "" + j + "Gauss").prop("disabled", true); //Lo deshabilitamos
+        }
+      }
+      let diagonal = matrizResuelta.map((element, i) => { return element[i] });
+      let esVerdad = true;
+      for (let i = 0; i < diagonal.length; i++) {
+        if (diagonal[i] != 1) {
+          esVerdad = false;
+          break;
+        }
+      }
+      if (esVerdad) {
+        $("#gaussMensaje").html(
+          "Y las soluciones son : " +
+          matrizResuelta
+            .map((element) => {
+              return parseFloat(element[element.length - 1]).toFixed(5);
+            })
+            .join(", ")
+        );
+        $("<span>")
+          .attr({
+            class: "badge bg-success",
+          })
+          .text("SOLUCIÓN ENCONTRADA")
+          .appendTo("#gaussMensaje");
+      }
+      else {
+        $("#gaussMensaje").html(
+          "Y las soluciones son : " +
+          matrizResuelta
+            .map((element) => {
+              return parseFloat(element[element.length - 1]).toFixed(5);
+            })
+            .join(", ")
+        );
+        $("<span>")
+          .attr({
+            class: "badge bg-warning",
+          })
+          .text("VERIFICA LA SOLUCION")
+          .appendTo("#gaussMensaje");
+      }
+    } catch (err) {
+      $("#gaussMensaje").html("Esta matriz no tiene solución.");
+      $("<span>")
+        .attr({
+          class: "badge bg-danger",
+        })
+        .text("SIN SOLUCIÓN 😢")
+        .appendTo("#gaussMensaje");
+      console.log(err);
+    }
+  };
+  // ===================================== Gauss con pivote UP
 </script>
