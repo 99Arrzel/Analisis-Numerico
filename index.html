@@ -273,10 +273,34 @@
             <hr>
             <p id="GaussSeidelTitulo" class="fs-3"><u>Método de Gauss-Seidel</u></p>
             <p>¿Qué es el método de Gauss-Seidel?</p>
-            <p>Es un método iterativo igual que el de Jacobi, sirve apra resolver sistemas de ecuaciones lineales(igual)
+            <p>Es un método iterativo de aproximacion igual que el de Jacobi, sirve para resolver sistemas de ecuaciones lineales, tiene ciertos requisitos.
             </p>
-            <p>¿En qué se caracterisa? Bueno, necesitas una matriz cuadrada y al igual que en Jacobi, necesitas que la
-              matriz sea diagonalmente dominante para garantizar la convergencia.</p>
+            <ol>
+              <li>Ser diagonalmente dominante o [ simetrica y positiva definida ].</li>
+            </ol>
+            <p>¿Cómo se resuelve con este metodo?</p>
+            <p> Aqui una explicación larga de esto</p>
+            <div id="solucionGaussSeidel">
+              <div class="input-group mb-3">
+                <span class="input-group-text">X</span>
+                <input type="number" id="altoGaussSeidel" type="text" class="form-control" placeholder="alto"
+                  aria-label="alto" />
+                <span class="input-group-text">Y</span>
+                <input type="number" id="anchoGaussSeidel" type="text" class="form-control" placeholder="ancho"
+                  aria-label="ancho" />
+                <button class="btn btn-success"
+                  onclick="chequearMatrizCuadrada('GaussSeidel'), crearMatriz('GaussSeidel', 'resolucionGaussSeidel'), crearAproximacion('GaussSeidel', 'aproxGaussSeidel')">
+                  Generar Matriz
+                </button>
+              </div>
+              <div id="aproxGaussSeidel">
+
+              </div>
+              <div id="resolucionGaussSeidel">
+
+              </div>
+
+            </div>
           </div>
         </div>
       </div>
@@ -287,6 +311,23 @@
 
 </html>
 <script>
+  let procesarGaussSeidel = () => {
+    if(!chequearSiMatrizEsDominante(getArray("GaussSeidel"))){
+      alert("La matriz no tiene una diagonal dominante, intenta intercambiar las ecuaciones.");
+      return;
+    }
+    let miArray = getArray("GaussSeidel");
+    let arrayEcuaciones = [];
+    for (let i = 0; i < miArray.length; i++) {
+        let ecuacion = extraerEcuacionArrayAString(miArray[i]);
+        console.log(ecuacion);
+        arrayEcuaciones.push(despejarEcuacion(ecuacion, "x" + (i + 1)));
+      }
+
+      console.log(arrayEcuaciones);
+
+  }
+
   let chequearSiMatrizEsDominante = (array) => {
     for(let i = 0; i < array.length; i++){
       for(let j = 0; j < array[i].length-1; j++){ //-1 porque vamos a pasar el array con los = y no quiero chequear eso
@@ -298,9 +339,9 @@
                 mayorALaDerecha = array[i][k];
               }
             }
-            if(mayorALaDerecha >= array[i][j]){
+            if(Math.abs(mayorALaDerecha) >= Math.abs(array[i][j])){
               console.log("La matriz no es dominante.")
-              console.log(`Con valor ${mayorALaIzquierda} es mayor o igual que ${array[i][j]}`);
+              console.log(`Con valor ${mayorALaDerecha} es mayor o igual que ${array[i][j]}`);
               return false;
             }
             let mayorALaIzquierda = 0;
@@ -312,7 +353,7 @@
                 }
               }
             }
-            if(mayorALaIzquierda >= array[i][j]){
+            if(Math.abs(mayorALaIzquierda) >= Math.abs(array[i][j])){
               console.log("La matriz no es dominante.")
               console.log(`Con valor ${mayorALaIzquierda} es mayor o igual que ${array[i][j]}`);
               return false;
@@ -336,10 +377,6 @@
       return;
     }
   }
-  let Gauss_Seidel = (A, b, maxIteraciones) => {
-    //Para obtener N
-
-  }
 
   let extraerEcuacionArrayAString = (array) => {
     let nArray = array.map((element, i) => {
@@ -361,7 +398,8 @@
     return nArray.join('')
   }
   let despejarEcuacion = (ecuacion, variableADespejar) => {
-    return nerdamer.solveEquations(ecuacion, variableADespejar)[0].text();
+        console.log(ecuacion);
+        return nerdamer.solveEquations(ecuacion, variableADespejar)[0].text();
   }
   let operarEcuacion = (ecuacion, arraySustitucion) => {
     return math.evaluate(ecuacion, arraySustitucion);
@@ -380,7 +418,7 @@
         $("#iteracionesJacobi").empty();
       }
       let aproximacion = formatearScope(getAproximacion('Jacobi'));
-      console.log(aproximacion);
+      //console.log(aproximacion);
       let miArray = getArray('Jacobi')
       let error = parseFloat("1e-4");
       let maxIteraciones = 100;
@@ -390,12 +428,11 @@
       //Empiezo una nueva forma de jacobi...
       let arrayEcuaciones = [];
       for (let i = 0; i < miArray.length; i++) {
+
         let ecuacion = extraerEcuacionArrayAString(miArray[i]);
-        console.log(ecuacion);
+        console.log(extraerEcuacionArrayAString(miArray[i]));
         arrayEcuaciones.push(despejarEcuacion(ecuacion, "x" + (i + 1)));
       }
-
-      console.log(arrayEcuaciones);
       let scope = aproximacion;
       let todasLasIteraciones = [];
       todasLasIteraciones.push(scope);
@@ -439,6 +476,7 @@
         .appendTo("#iteracionesJacobi");
       $("<p>").html(ultimaIteracion).appendTo("#iteracionesJacobi");
     } catch (err) {
+      console.log(err);
       $("<p>").text("Este sistema es irresolvible por el método de Jacobi.").appendTo("#iteracionesJacobi");
         $("<span>")
         .attr({
