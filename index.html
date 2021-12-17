@@ -21,362 +21,737 @@
 </head>
 
 <body>
-  <div class="d-flex" id="wrapper">
-    <!-- Sidebar-->
-    <div class="border-end bg-white" id="sidebar-wrapper">
-      <div class="list-group list-group-flush position-fixed" style="width: 10%">
-        <a class="
-              list-group-item list-group-item-action list-group-item-primary
-            ">Introducción</a>
-        <a class="
-              list-group-item list-group-item-action list-group-item-primary
-            " href="#s_numeracion">Sistemas de numeración</a>
-        <a class="
-              list-group-item list-group-item-action list-group-item-secondary
-            " href="#binario">Binario</a>
-        <a class="
-              list-group-item list-group-item-action list-group-item-secondary
-            " href="#!">Octal</a>
-        <a class="
-              list-group-item list-group-item-action list-group-item-secondary
-            " href="#!">Hexadecimal</a>
-        <a class="
-              list-group-item list-group-item-action list-group-item-primary
-            " href="#!">Errores</a>
-        <a class="
-              list-group-item list-group-item-action list-group-item-primary
-            " href="#!">Matrices</a>
-        <a class="
-              list-group-item list-group-item-action list-group-item-primary
-            " href="#!">Ecuaciones no lineales</a>
-        <a class="
-              list-group-item list-group-item-action list-group-item-primary
-            " href="#!">Sistemas de ecuaciones lineales</a>
-        <a class="
-              list-group-item list-group-item-action list-group-item-primary
-            " href="#!">Sistemas de ecuaciones no lineales</a>
-        <a class="
-              list-group-item list-group-item-action list-group-item-primary
-            " href="#!">Integración númerica</a>
-        <a class="
-              list-group-item list-group-item-action list-group-item-primary
-            " href="#!">Derivación númerica</a>
-        <a class="
-              list-group-item list-group-item-action list-group-item-primary
-            " href="#!">Diferencia finita</a>
-        <a class="
-              list-group-item list-group-item-action list-group-item-primary
-            " href="#!">Interpolación</a>
-        <a class="
-              list-group-item list-group-item-action list-group-item-primary
-            " href="#!">Regresion</a>
-        <a class="
-              list-group-item list-group-item-action list-group-item-primary
-            " href="#!">Sobre mi</a>
+  <nav class="sidebar" style="margin-top: -35px">
+    <div class="text">Análisis Numérico</div>
+    <ul class="main_side">
+      <li class="active"><a href="#">Introducción</a></li>
+      <li>
+        <a href="#" id="sisnumsb">Sistemas de numeración <span class="fas fa-caret-down"></span>
+        </a>
+        <ul class="item-show-sisnumsb">
+          <li><a href="#">Binario</a></li>
+          <li><a href="#">Octal</a></li>
+          <li><a href="#">Hexadecimal</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#t_errores" id="erroressb">Errores <span class="fas fa-caret-down"></span>
+        </a>
+        <ul class="item-show-erroressb">
+          <li><a href="#">Absoluto</a></li>
+          <li><a href="#">Relativo</a></li>
+          <li><a href="#">Porcentual</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#" id="matricessb">Matrices <span class="fas fa-caret-down"></span>
+        </a>
+        <ul class="item-show-matricessb">
+          <li><a href="#">Tipos de matrices</a></li>
+          <li><a href="#">Suma de matrices</a></li>
+          <li><a href="#">Resta de matrices</a></li>
+          <li><a href="#">Producto de matrices</a></li>
+          <li><a href="#">Division de matrices</a></li>
+          <li><a href="#">Producto por escalar</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#" id="eculinsb">Ecuaciones lineales </a>
+      </li>
+      <li>
+        <a href="#" id="ecunolinsb">Ecuaciones no lineales </a>
+      </li>
+      <li>
+        <a href="#" id="siseculinsb">Sistemas de ecuaciones lineales
+          <span class="fas fa-caret-down"></span>
+        </a>
+        <ul class="item-show-siseculinsb">
+          <li><a href="#">Eliminación Gausiana</a></li>
+          <li><a href="#">Método de Jacobi</a></li>
+          <li><a href="#">Método de Gauss-Seidel</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#" id="sisecunolinsb">Sistemas de ecuaciones no lineales
+          <span class="fas fa-caret-down"></span>
+        </a>
+        <ul class="item-show-sisecunolinsb">
+          <li><a href="#">Método de Sustitución</a></li>
+          <li><a href="#">Graficando con Geogebra</a></li>
+          <li><a href="#">Newton-Raphson</a></li>
+          <li><a href="#">Método del punto fijo</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#" id="interpolacionsb">Interpolación
+          <span class="fas fa-caret-down"></span>
+        </a>
+        <ul class="item-show-interpolacionsb">
+          <li><a href="#">Método de Newton</a></li>
+          <li><a href="#">Método de Lagrange</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#" id="regresionsb">
+          Regresión<span class="fas fa-caret-down"></span>
+        </a>
+        <ul class="item-show-regresionsb">
+          <li><a href="#">Regresión Parabolica</a></li>
+          <li><a href="#">Regresión exponencial</a></li>
+          <li><a href="#">Regresión potencial</a></li>
+          <li><a href="#">¿Por qué le llamamos proyección?</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#" id="integracionsb">
+          Integración númerica<span class="fas fa-caret-down"></span>
+        </a>
+        <ul class="item-show-integracionsb">
+          <li><a href="#">Regla del trapecio</a></li>
+          <li><a href="#">Formula de Newton-Cotes</a></li>
+          <li><a href="#">Regla de Simpson 1/3 (Primera regla)</a></li>
+          <li><a href="#">Regla de Simpson 3/8 (Segunda regla)</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#" id="ecudiferencialessb">
+          Ecuaciones diferenciales<span class="fas fa-caret-down"></span>
+        </a>
+        <ul class="item-show-ecudiferencialessb">
+          <li><a href="#">Ordinarias</a></li>
+          <li><a href="#">Diferenciales</a></li>
+          <li><a href="#">Parciales</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+  <div class="btnMain">
+    <span class="fas fa-bars"></span>
+  </div>
+
+  <!-- Sidebar-->
+
+  <!-- Page content wrapper-->
+
+  <div class="container-xxl">
+    <div class="col-md-12" style="margin-top: 35px">
+      <p class="fs-1"><strong>Análisis númerico</strong></p>
+      <p>
+        Es una rama de las mates que se encarga de diseñar algoritmos para
+        simular aproximaciones de solución a problemas de análisis matemático.
+      </p>
+    </div>
+    <hr />
+    <div class="col-md-12">
+      <p class="fs-2"><strong>Introducción</strong></p>
+      <p>
+        Este curso abarcará problemas de análisis númerico, algunas cosas las
+        he visto en la universidad en una materia denominada métodos númericos
+        y otras por pura curiosidad, resolveremos problemas de análisis,
+        intentaré que todo esté en una sola página porque me parece más
+        didactivo, además, intentaré graficar el porque de las aproximaciones
+        que sacamos, el objetivo es que para el lector sea más sencillo
+        aprender este tema.
+      </p>
+    </div>
+    <hr />
+    <div class="col-md-12">
+      <p id="s_numeracion" class="fs-2">
+        <strong>Sistemas de númeración</strong>
+      </p>
+      <p>
+        Los sistemas de numeración son nuestra base para realizar operaciones
+        aritmeticas, ya sabes, sumar, restar, multiplicar y dividir, la
+        diferencia es que la mayoría de nosotros solo sabe hacerlo en el
+        sistema de númeración decimal, mi trabajo es enseñarte estas
+        operaciones para los sistemas binario, octal y hexadecimal.
+      </p>
+    </div>
+    <hr />
+    <div class="col-md-12">
+      <p id="binario" class="fs-3"><strong>Binario</strong></p>
+      <p>
+        Este sistema se compone, como su nombre lo indica, de 2 números, el 0
+        y 1, lo usamos en las computadoras más que nada, no te servirá de
+        mucho saber esto pero es interesante saber como se cuenta con estos
+        números, que también te ayudará a entender los tipos de información
+        (como int32?) y como estas se relacionan con los bits, que simplemente
+        es una unidad en este sistema.
+      </p>
+      <p>
+        Tomaremos una aproximación a uno de los sistemas que ya conoces, el
+        decimal, la conversión la realizaremos con una tablita con la que
+        aprendí.
+      </p>
+      <img src="img/tabla1.jpg" class="aimg" alt="tabla decimal a binario" />
+      <p>
+        Como te puedes dar cuenta, el 1 en este sistema indica un valor y para
+        representar un valor más grande simplemente recorremos el uno a la
+        izquierda, así podemos representar su igual en decimal, que es el
+        sistema que ya conoces
+      </p>
+      <p id="binarioSuma" class="fs-4"><u>Suma en binario</u></p>
+      <p>
+        Para realizar una suma, haremos lo mismo que se hace en un sistema
+        decimal, sumar XD.
+      </p>
+      <p>
+        Pero primero debes conocer 4 equivalencias básicas para la suma en
+        binario.
+      </p>
+      <img src="img/tabla2.jpg" class="aimg" alt="tabla reglas basicas suma binario" />
+      <p>Y listo, ya sabes sumar en binario 👍👍👍</p>
+      <p>
+        Como podes darte cuenta, es así de sencillo, ahora como un ejemplo te
+        dejo la siguiente imagen donde podes apreciar una suma sencilla
+      </p>
+      <img src="img/SumaBinaria.jpg" class="aimg" alt="suma en binario" />
+      <p id="binarioResta" class="fs-4"><u>Resta en binario</u></p>
+      <p>
+        Para restar en binario es sencillo, es como la suma, necesitas una
+        tabla de reglas, pero acá tendrás un acarreo negativo.
+      </p>
+      <img src="img/REGLASRESTA.jpg" class="aimg" alt="tabla reglas basicas resta binario" />
+      <p>Acá te dejo un ejemplo para que veas como funciona</p>
+      <img src="img/RestaBinaria.jpg" class="aimg" alt="resta en binario" />
+      <p id="binarioMulti" class="fs-4"><u>Multiplicación en binario</u></p>
+      <p>
+        Al igual que en la suma y la resta, acá tenemos 4 reglas básicas, te
+        las dejo en una tabla
+      </p>
+      <p>
+        En fin, se multiplica igual que los decimales pero cuando hagas la
+        suma, recuerda las reglas de la suma binaria
+      </p>
+    </div>
+    <hr />
+    <div class="col-md-12">
+      <p id="t_errores" class="fs-2">
+        <strong>Errores</strong>
+      </p>
+      <p>
+        ¿Qué son los errores? En palabras simples los errores son
+        inexactitudes, malos cálculos, errores de dedo y cualquier otra
+        falencia producida en el momento en el que se calcula o mide algo y
+        que es diferente del valor mas exacto o “real”.
+      </p>
+      <div class="col-md-12" id="t_errorAbs">
+        <p class="fs-3">Error Absoluto</p>
+        <p>
+          El error absoluto es el error que se produce cuando se calcula un
+          valor y se obtiene un resultado diferente al que se esperaba. Es
+          sencillo, se trata del error que cometiste de cualquier forma y es
+          diferente del valor real, para medirlo solo debes usar la siguiente
+          formula Error Absoluto = |Valor que mediste - Valor verdadero o
+          “real”| Su nombre viene del valor absoluto ya que nosotros no
+          sabemos si el error fue aumentándole o reduciéndole valor a la
+          medición, por eso se usa el valor absoluto
+        </p>
+      </div>
+      <div class="col-md-12" id="t_errorRelativo">
+        <p class="fs-3">Error relativo</p>
+        <p>
+          El error relativo se calcula dividiendo el Erro Absoluto entre el
+          valor “real” Al igual que el error absoluto puede ser positivo o
+          negativo porque puede se puede producir por exceso o por defecto y
+          al contrario que él no viene acompañado de unidades. Error Relativo
+          = Error absoluto/Valor real ¿para que sirve? El error relativo sirve
+          de indicador de la calidad de una medida. Para entender este
+          concepto utilizaremos otro ejemplo. Imagina que se comete un error
+          absoluto de 1 metro al medir una calle de 200 metros y otra de 3000.
+          Si calculamos los errores relativos en ambas mediciones tenemos que
+          son 1/200 y 1/3000. Dado que en la segunda medición el error
+          relativo es más pequeño quiere decir que la calidad de la medida es
+          mucho mejor que la de la primera. Y de hecho si lo piensas bien, es
+          mucho mejor equivocarse en un metro cuando cuento 3000 metros que
+          cuando cuento 200 metros. 👍👍
+        </p>
+      </div>
+      <div class="col-md-12" id="t_errorPorcentual">
+        <p class="fs-3">Error porcentual</p>
+        <p>
+          Error Porcentual Este viene de la mano del error relativo y
+          básicamente sirve para dar un significado porcentual de cuánto te
+          equivocaste
+        <p>Se calcula: Error porcentual = Error Relativo*100</p>
+        </p>
+      </div>
+      <div class="col-md-12" id="t_errorRedondeo">
+        <p class="fs-3">Error de redondeo</p>
+        <p>
+          Este error se da cuando la computadora o calculadora trabajan con ciertos redondeos luego de cierto punto para
+          dejar espacio en pantalla
+          El error de redondeo se calcula asi:
+          Error redondeo = |Error Absoluto|≤0.5*10-cantidad dígitos
+          Ejemplo:
+          Valor real 3.865672 redondeado a x decimales, en este caso 4
+          ERd = |3.865672-3.8656|≤0.5*10^-4
+          Y si la condición sale verdadera, hubo un error considerable
+        </p>
+      </div>
+      <div class="col-md-12" id="t_erroTruncamiento">
+        <p class="fs-3">Error de redondeo</p>
+        <p>
+          Los errores por truncamiento son aquellos que resultan al usar una aproximación en lugar de un procedimiento
+          matemático exacto.
+          Siendo la formula:
+          ERt= |Valor real-valor usando aproximacion|≤1*10-cantidad dígitos
+          Si queremos saber el valor del numero de Euler seria
+          e= 1+ 1/1! + 1^2/2! y asi sucesivamente
+          El punto del error de truncamiento es ver cuantas veces tendremos que repetir la serie hasta que el valor que
+          obtenemos según la aproximación, sea igual al valor real, dependiendo de cuantos decimales nos pongamos de
+          limite, quedando asi:
+          Valor de e usando 5 iteraciones = 2.7166666
+          Valor real de e = 2.718281828
+          Usando 6 decimales
+          ERt = |2.718281828-2.7166666|≤1*10^-6
+          Si sale falso significa que debemos seguir aumentando iteraciones hasta que salga verdadero
+        </p>
       </div>
     </div>
-    <!-- Page content wrapper-->
-    <div id="page-content-wrapper" style="margin-left: 10%">
-      <div class="container-fluid">
-        <div class="col-md-12">
-          <p class="fs-1"><strong>Análisis númerico</strong></p>
-          <p>
-            Es una rama de las mates que se encarga de diseñar algoritmos para
-            simular aproximaciones de solución a problemas de análisis
-            matemático.
-          </p>
-        </div>
-        <div class="col-md-12">
-          <p class="fs-2"><strong>Introducción</strong> </p>
-          <p>
-            Este curso abarcará problemas de análisis númerico, algunas cosas
-            las he visto en la universidad en una materia denominada métodos
-            númericos y otras por pura curiosidad, resolveremos problemas de
-            análisis, intentaré que todo esté en una sola página porque me
-            parece más didactivo, además, intentaré graficar el porque de las
-            aproximaciones que sacamos, el objetivo es que para el lector sea
-            más sencillo aprender este tema.
-          </p>
-        </div>
-        <div class="col-md-12">
-          <p id="s_numeracion" class="fs-2"><strong>Sistemas de númeración</strong></p>
-          <p>
-            Los sistemas de numeración son nuestra base para realizar
-            operaciones aritmeticas, ya sabes, sumar, restar, multiplicar y
-            dividir, la diferencia es que la mayoría de nosotros solo sabe
-            hacerlo en el sistema de númeración decimal, mi trabajo es
-            enseñarte estas operaciones para los sistemas binario, octal y
-            hexadecimal.
-          </p>
-        </div>
-        <div class="col-md-12">
-          <p id="binario" class="fs-3"><strong>Binario</strong></p>
-          <p>
-            Este sistema se compone, como su nombre lo indica, de 2 números,
-            el 0 y 1, lo usamos en las computadoras más que nada, no te
-            servirá de mucho saber esto pero es interesante saber como se
-            cuenta con estos números, que también te ayudará a entender los
-            tipos de información (como int32?) y como estas se relacionan con
-            los bits, que simplemente es una unidad en este sistema.
-          </p>
-          <p>
-            Tomaremos una aproximación a uno de los sistemas que ya conoces,
-            el decimal, la conversión la realizaremos con una tablita con la
-            que aprendí.
-          </p>
-          <img src="img/tabla1.jpg" class="aimg" alt="tabla decimal a binario" />
-          <p>
-            Como te puedes dar cuenta, el 1 en este sistema indica un valor y
-            para representar un valor más grande simplemente recorremos el uno
-            a la izquierda, así podemos representar su igual en decimal, que
-            es el sistema que ya conoces
-          </p>
-          <p id="binarioSuma" class="fs-4"><u>Suma en binario</u></p>
-          <p>
-            Para realizar una suma, haremos lo mismo que se hace en un sistema
-            decimal, sumar XD.
-          </p>
-          <p>
-            Pero primero debes conocer 4 equivalencias básicas para la suma en
-            binario.
-          </p>
-          <img src="img/tabla2.jpg" class="aimg" alt="tabla reglas basicas suma binario" />
-          <p>Y listo, ya sabes sumar en binario 👍👍👍</p>
-          <p>
-            Como podes darte cuenta, es así de sencillo, ahora como un ejemplo
-            te dejo la siguiente imagen donde podes apreciar una suma sencilla
-          </p>
-          <img src="img/SumaBinaria.jpg" class="aimg" alt="suma en binario" />
-          <p id="binarioResta" class="fs-4"><u>Resta en binario</u></p>
-          <p>
-            Para restar en binario es sencillo, es como la suma, necesitas una
-            tabla de reglas, pero acá tendrás un acarreo negativo.
-          </p>
-          <img src="img/REGLASRESTA.jpg" class="aimg" alt="tabla reglas basicas resta binario" />
-          <p>Acá te dejo un ejemplo para que veas como funciona</p>
-          <img src="img/RestaBinaria.jpg" class="aimg" alt="resta en binario" />
-          <p id="binarioMulti" class="fs-4"><u>Multiplicación en binario</u></p>
-          <p>
-            Al igual que en la suma y la resta, acá tenemos 4 reglas básicas,
-            te las dejo en una tabla
-          </p>
-          <p>
-            En fin, se multiplica igual que los decimales pero cuando hagas la
-            suma, recuerda las reglas de la suma binaria
-          </p>
-        </div>
-        <!-- Falta muchas cosas arriba. -->
-        <div class="col-md-12">
-          <p id="s-ecuaciones-lineales" class="fs-2">
-            <strong>Sistemas de ecuaciones lineales</strong>
-          </p>
-          <p>¿Qué son las ecuaciones lineales?</p>
-          <!-- Completar esto -->
-          <div class="col-md-12">
-            <p id="gaussJordanTitulo" class="fs-3">
-              <u>Método de eliminación de Gauss por pivote</u>
-            </p>
-            <p>
-              ¿Qué es? Es un método para resolver sistemas de ecuaciones
-              lineales, también se llama reducción de fila 👍(Row Reduccion en
-              inglés).
-            </p>
-            <p>
-              ¿En qué consiste? Bueno, es simplemente sacar los coeficientes
-              de tu sistema de ecuaciones y operar entre ellos, podes hacer 3
-              procedimientos.
-            </p>
-            <ol>
-              <li>Intercambiar 2 filas.</li>
-              <li>Multiplicar por un número que no sea 0 obviamente.</li>
-              <li>Sumar el multiplo de una fila a otra fila</li>
-            </ol>
-            <p>
-              Ok, opero con eso, pero no entiendo, ¿qué forma tengo que darle?
-              Bueno, es bastante sencillo en realidad, lo que tenes que hacer
-              es formar una matriz escalonada reducida, sencillo 👍.
-            </p>
-            <p>
-              Ok, ¿Qué es una matriz escalonada reducida? Bueno, empecemos por
-              que es una matriz escalonada, una matriz escalonada es
-              simplemente una matriz
-              <strong>donde los renglones de la parte inferior de la matriz están
-                en 0</strong>, de manera que hace como una escalerita de 0s 😯🤯🤯🤯🤯
-            </p>
-            <!-- Poner la foto de 2 matrices, la escalonada y la escalonada reducida 👍👍👍 -->
-            <p>Tiene la siguiente forma una matriz escalonada.</p>
-            <p>Y esta es una matriz escalonada reducida.</p>
-            <p>
-              Los procedimientos se realizan de esta manera.
-              <!-- Acá debo poner un gif de los 3 procedimientos, ya que es para dummies... -->
-            </p>
-            <hr />
-            <p>
-              Podes ver mi algoritmo en el código fuente, o sea,
-              <a href="https://github.com/CraniumAdamantium/Analisis-Numerico/tree/gh-pages">aqui</a>
-            </p>
-            <p id="gaussMensaje">
-              Sin mas, resolvamos con el método de Gauss
-            </p>
-            <div id="solucionGaussPivote">
-              <p>Ingresa el alto y ancho de la matriz</p>
-              <div class="input-group mb-3">
-                <span class="input-group-text">X</span>
-                <input type="number" id="altoGauss" type="text" class="form-control" placeholder="alto"
-                  aria-label="alto" />
-                <span class="input-group-text">Y</span>
-                <input type="number" id="anchoGauss" type="text" class="form-control" placeholder="ancho"
-                  aria-label="ancho" />
-                <button class="btn btn-success" onclick="crearMatriz('Gauss', 'resolucionGauss')">
-                  Generar Matriz
-                </button>
-              </div>
-              <div id="resolucionGauss">
-              </div>
-            </div>
-          </div>
-          <div class="col-md-12">
-            <hr>
-            <p id="JacobiTitulo" class="fs-3"><u>Método de Jacobi</u></p>
-            <p>¿Qué es el método de Jacobi?</p>
-            <p>Bueno, es un método iterativo para "determinar" la solución de un sistema de ecuaciones con
-              características de matriz dominante diagonal, es decir, el número de la diagonal es mayor o igual a la
-              suma de los número en su respectiva fila y es cuadrada.</p>
-            <p>¿Cómo se resuelve?</p>
-            <p>Bueno, simplemente hay que entender que la matriz se compone de 3 partes, (Como la formula indica, A = D
-              + L + U), donde A es la matriz, D es la diagonal, L es la parte inferior de la diagonal, y U es la parte
-              superior de la diagonal. Después de eso solo despejamos una x y vamos iterando con la matriz inicial</p>
-            <div id="solucionJacobi">
-              <p>Ingresa el alto y ancho de la matriz</p>
-              <div class="input-group mb-3">
-                <span class="input-group-text">X</span>
-                <input type="number" id="altoJacobi" type="text" class="form-control" placeholder="alto"
-                  aria-label="alto" />
-                <span class="input-group-text">Y</span>
-                <input type="number" id="anchoJacobi" type="text" class="form-control" placeholder="ancho"
-                  aria-label="ancho" />
-                <button class="btn btn-success"
-                  onclick="chequearMatrizCuadrada('Jacobi'), crearMatriz('Jacobi', 'resolucionJacobi'), crearAproximacion('Jacobi', 'aproxJacobi')">
-                  Generar Matriz
-                </button>
-              </div>
-              <div id="aproxJacobi">
-              </div>
-              <div id="resolucionJacobi">
-                <div id="jacobiPuesto"></div>
-              </div>
-              <div id="iteracionesJacobi">
-              </div>
-            </div>
-          </div>
-          <div class="col-md-12">
-            <hr>
-            <p id="GaussSeidelTitulo" class="fs-3"><u>Método de Gauss-Seidel</u></p>
-            <p>¿Qué es el método de Gauss-Seidel?</p>
-            <p>Es un método iterativo de aproximacion igual que el de Jacobi, sirve para resolver sistemas de ecuaciones lineales, tiene ciertos requisitos.
-            </p>
-            <ol>
-              <li>Ser diagonalmente dominante o [ simetrica y positiva definida ].</li>
-            </ol>
-            <p>¿Cómo se resuelve con este metodo?</p>
-            <p> Aqui una explicación larga de esto</p>
-            <div id="solucionGaussSeidel">
-              <div class="input-group mb-3">
-                <span class="input-group-text">X</span>
-                <input type="number" id="altoGaussSeidel" type="text" class="form-control" placeholder="alto"
-                  aria-label="alto" />
-                <span class="input-group-text">Y</span>
-                <input type="number" id="anchoGaussSeidel" type="text" class="form-control" placeholder="ancho"
-                  aria-label="ancho" />
-                <button class="btn btn-success"
-                  onclick="chequearMatrizCuadrada('GaussSeidel'), crearMatriz('GaussSeidel', 'resolucionGaussSeidel'), crearAproximacion('GaussSeidel', 'aproxGaussSeidel')">
-                  Generar Matriz
-                </button>
-              </div>
-              <div id="aproxGaussSeidel">
+    <hr>
+    <div class="col-md-12" id="t_ecuacionesLineales">
+      <p class="fs-2"><strong>Ecuaciones lineales</strong></p>
+      <p>Son ecuaciones facilangas de primer grado que se pueden resolver con algebra generalmente, no quiero hondar en
+        este tema porque... es fácil, es de colegio XD, pero quizá lo haga en un futuro.</p>
+    </div>
+    <hr>
+    <div class="col-md-12" id="t_ecuacionesNoLineales">
+      <p class="fs-2"><strong>Ecuaciones no lineales</strong></p>
+      <p>Para dar solución a estos problemas existen distintos algoritmos o métodos para encontrar las raíces de f(x) =
+        0, pero debemos tener en cuenta que ninguno es general, pues en otras palabras no existe un método que funcione
+        con todas las ecuaciones perfectamente.</p>
+      <img src="img/ejemploEcuNoLineal.png" class="aimg" alt="ecuacion no lineal" />
+    </div>
+    <div class="col-md-12" id="t_ecunolinealNewton">
+      <p class="fs-3">Método de Newton Raphson</p>
+      <p>-Para este método primero se nos da una función f(x)
+        -graficamos la función manualmente o en un graficadora para ver en que punto la función se intersecta con el eje
+        x y ese punto seria nuestro valor real, y para poder efectuar las ecuaciones no lineales, nos damos un punto
+        cercano, ej si se intersecta en el punto 1.8, nuestra Xo seria por ejemplo 1
+        -Nos damos un error
+        -Derivamos la función 1 vez
+        -usamos la formula:
+        Xo-(Funcion original / Funcion derivada 1 vez)
+        En esa formula debemos poner las funciones como dice, pero reemplazando las x que hay en esas funciones por Xo
+        para que nos de 1 numero
+        -Luego restamos ese numero a Xo en valor absoluto: |xo-g(x)|
+        -Verificamos si ese numero que nos dara la resta, es menor o igual al error que nos propusimos al inicio y si es
+        verdadero, ahí termina la tabla
+        -Caso contrario si es falso, entonces el numero que sacamos con la formula(g(x)) pasara a ser el nuevo Xo y
+        volvemos a reemplazarlo en la formula, y asi el proceso se repite
+      <p>Aquí una imagen de la tablita de errores por iteración</p>
+      <img src="img/newtonErroresNoLineal.png" class="aimg" alt="errores newton" />
+      </p>
+    </div>
+    <div class="col-md-12" id="t_ecunolinealNewton2daOrden">
+      <p class="fs-3">Método de Newton de segunda orden</p>
+      <p>Metodo newton 2do orden
+        -Para este método primero se nos da una función f(x)
+        -graficamos la función manualmente o en un graficadora para ver en que punto la función se intersecta con el eje
+        x y ese punto seria nuestro valor real, y para poder efectuar las ecuaciones no lineales, nos damos un punto
+        cercano, ej si se intersecta en el punto 1.8, nuestra Xo seria por ejemplo 1
+        -Nos damos un error
+        -Derivamos la función 2 veces
+        -usamos la formula:
+        Xo-((Funcion original*Funcion derivada 1 vez)/(( Funcion derivada 1 vez)^2 – Funcion original * Funcion derivada
+        2 vez))
+        En esa formula debemos poner las funciones como dice, pero reemplazando las x que hay en esas funciones por Xo
+        para que nos de 1 numero
+        -Luego restamos ese numero a Xo en valor absoluto: |xo-g(x)|
+        -Verificamos si ese numero que nos dara la resta, es menor o igual al error que nos propusimos al inicio y si es
+        verdadero, ahí termina la tabla
+        -Caso contrario si es falso, entonces el numero que sacamos con la formula(g(x)) pasara a ser el nuevo Xo y
+        volvemos a reemplazarlo en la formula, y asi el proceso se repite
+      </p>
+      <img src="img/newton2daOrdenErrorEjemplo.png" class="aimg" alt="errores newton 2do orden" />
+    </div>
+    <div class="col-md-12" id="t_ecuNoLinealSecante">
+      <p class="fs-3">Método de la Secante</p>
+      <p>--Para este método primero se nos da una función f(x)
+        -graficamos la función manualmente o en un graficadora para ver en que puntos la función se intersecta con el
+        eje x y ese punto seria nuestro valor real, y para poder efectuar las ecuaciones no lineales, nos damos 2 puntos
+        cercanos que rodeen al punto en la graficadora y que serian nuestros Xo y Xo-1; por ejemplo si el punto marca 2,
+        nos dariamos 1.5 como Xo-1 y 2.4 como Xo
+        -Nos damos un error
+        -usamos la formula:
+        Xo-(((Xo-Xo-1)*Funcion original usando Xo)/( Funcion original usando Xo - Funcion original usando Xo-1))
+        Recuerda que Xo-1 es el nombre de la varible, no una operación aparte
 
-              </div>
-              <div id="resolucionGaussSeidel">
-
-              </div>
-
-            </div>
+        En esa formula debemos poner las funciones como dice, pero reemplazando las x que hay en esas funciones por Xo y
+        Xo-1 cuando se requiera para que nos de un numero
+        -Luego restamos ese numero a Xo en valor absoluto: |xo-g(x)|
+        -Verificamos si ese numero que nos dara la resta, es menor o igual al error que nos propusimos al inicio y si es
+        verdadero, ahí termina la tabla
+        -Caso contrario si es falso, entonces el numero que sacamos con la formula(g(x)) pasara a ser el nuevo Xo y el
+        Xo anterior pasara a ser el nuevo Xo-1 volvemos a reemplazarlos en la formula, y asi el proceso se repite
+      </p>
+      <img src="img/ejemploSecante.png" class="aimg" alt="secante ejemplo" />
+    </div>
+    <div class="col-md-12" id="t_regulaFalsi">
+      <p class="fs-3">Método de Regula Falsi</p>
+      <p>
+        -Se nos da una ecuación
+        -graficamos la función manualmente o en un graficadora para ver en que puntos la función se intersecta con el
+        eje x y ese punto seria nuestro valor real, y para poder efectuar las ecuaciones no lineales, nos damos 2 puntos
+        cercanos que rodeen al punto en la graficadora y que serian nuestros XI y XD; por ejemplo si el punto marca 4,
+        nos dariamos 3.4 como XI y 5.4 como XD
+        -Nos damos un error
+        -Utilizamos la formula para hallar Xm que es:
+        Xm= XD-(((XD-XI)*Funcion original usando XD)/( Funcion original usando XD- Funcion original usando XI))
+        - En esa formula debemos poner las funciones como dice, pero reemplazando las x que hay en esas funciones por XD
+        y XI cuando se requiera para que nos de Xm
+        -Luego ponemos Xm dentro de un valor absoluto y verificamos si es menor o igual al error planteado, si es
+        verdadero ahí termina el ejercicio
+        -Caso contrario si es falso, entonces el numero que sacamos con la formula(ósea Xm) pasara a ser el nuevo XI y
+        asi el proceso se repite
+        (XD no se cambia para nada durante todas las iteraciones)
+      </p>
+      <img src="img/regulaFalsi.png" class="aimg" alt="regula falsi ejemplo" />
+    </div>
+    <div class="col-md-12" id="t_biseccion">
+      <p class="fs-3">Método de bisección</p>
+      Se nos da una ecuación
+      -graficamos la función manualmente o en un graficadora para ver en que puntos la función se intersecta con el eje
+      x y ese punto seria nuestro valor real, y para poder efectuar las ecuaciones no lineales, nos damos 2 puntos
+      cercanos que rodeen al punto en la graficadora y que serian nuestros XI y XD; por ejemplo si el punto marca 4, nos
+      dariamos 3.4 como XI y 5.4 como XD
+      -Nos damos un error
+      -Utilizamos la formula para hallar Xm que es:
+      Xm= (XI+XD)/(2)
+      -Luego de obtener Xm, reemplazamos Xm en la función original para obtener otro numero F(Xm)
+      -Verificamos si el valor absoluto de Xm -XI es menor o igual al error,si es verdadero ahí termina el ejercicio
+      -Caso contrario si es falso, hay 2 rutas posibles que debemos tener en cuenta,
+      1.Si F(Xm) es positivo entonces Xm pasa a ser la nueva XI y XD se mantiene intacta e iteramos de nuevo
+      2, Si f(Xm) es negativo entonces Xm pasa a ser la nueva XD y XI se mantiene intacta e iteramos de nuevo
+      En todo caso continuamos asi hasta que hayamos verificado si el valor absoluto de Xm -XI es menor o igual al error
+      planteado al principio
+      <p>Bueno, la mayoría de estos métodos solo son métodos numéricos para hallar la resolución numérica de ecuaciones
+        no lineales, todos hacen lo mismo, pero de diferente forma.</p>
+    </div>
+    <!-- Falta muchas cosas arriba. -->
+    <hr />
+    <div class="col-md-12">
+      <p id="s-ecuaciones-lineales" class="fs-2">
+        <strong>Sistemas de ecuaciones lineales</strong>
+      </p>
+      <p>¿Qué son las ecuaciones lineales?</p>
+      <!-- Completar esto -->
+      <div class="col-md-12">
+        <p id="gaussJordanTitulo" class="fs-3">
+          <u>Método de eliminación de Gauss por pivote</u>
+        </p>
+        <p>
+          ¿Qué es? Es un método para resolver sistemas de ecuaciones lineales,
+          también se llama reducción de fila 👍(Row Reduccion en inglés).
+        </p>
+        <p>
+          ¿En qué consiste? Bueno, es simplemente sacar los coeficientes de tu
+          sistema de ecuaciones y operar entre ellos, podes hacer 3
+          procedimientos.
+        </p>
+        <ol>
+          <li>Intercambiar 2 filas.</li>
+          <li>Multiplicar por un número que no sea 0 obviamente.</li>
+          <li>Sumar el multiplo de una fila a otra fila</li>
+        </ol>
+        <p>
+          Ok, opero con eso, pero no entiendo, ¿qué forma tengo que darle?
+          Bueno, es bastante sencillo en realidad, lo que tenes que hacer es
+          formar una matriz escalonada reducida, sencillo 👍.
+        </p>
+        <p>
+          Ok, ¿Qué es una matriz escalonada reducida? Bueno, empecemos por que
+          es una matriz escalonada, una matriz escalonada es simplemente una
+          matriz
+          <strong>donde los renglones de la parte inferior de la matriz están en
+            0</strong>, de manera que hace como una escalerita de 0s 😯🤯🤯🤯🤯
+        </p>
+        <!-- Poner la foto de 2 matrices, la escalonada y la escalonada reducida 👍👍👍 -->
+        <p>Tiene la siguiente forma una matriz escalonada.</p>
+        <p>Y esta es una matriz escalonada reducida.</p>
+        <p>
+          Los procedimientos se realizan de esta manera.
+          <!-- Acá debo poner un gif de los 3 procedimientos, ya que es para dummies... -->
+        </p>
+        <hr />
+        <p>
+          Podes ver mi algoritmo en el código fuente, o sea,
+          <a href="https://github.com/CraniumAdamantium/Analisis-Numerico/tree/gh-pages">aqui</a>
+        </p>
+        <p id="gaussMensaje">Sin mas, resolvamos con el método de Gauss</p>
+        <div id="solucionGaussPivote">
+          <p>Ingresa el alto y ancho de la matriz</p>
+          <div class="input-group mb-3">
+            <span class="input-group-text">X</span>
+            <input type="number" id="altoGauss" type="text" class="form-control" placeholder="alto" aria-label="alto" />
+            <span class="input-group-text">Y</span>
+            <input type="number" id="anchoGauss" type="text" class="form-control" placeholder="ancho"
+              aria-label="ancho" />
+            <button class="btn btn-success" onclick="crearMatriz('Gauss', 'resolucionGauss')">
+              Generar Matriz
+            </button>
           </div>
+          <div id="resolucionGauss"></div>
+        </div>
+      </div>
+      <div class="col-md-12">
+        <hr />
+        <p id="JacobiTitulo" class="fs-3"><u>Método de Jacobi</u></p>
+        <p>¿Qué es el método de Jacobi?</p>
+        <p>
+          Bueno, es un método iterativo para "determinar" la solución de un
+          sistema de ecuaciones con características de matriz dominante
+          diagonal, es decir, el número de la diagonal es mayor o igual a la
+          suma de los número en su respectiva fila y es cuadrada.
+        </p>
+        <p>¿Cómo se resuelve?</p>
+        <p>
+          Bueno, simplemente hay que entender que la matriz se compone de 3
+          partes, (Como la formula indica, A = D + L + U), donde A es la
+          matriz, D es la diagonal, L es la parte inferior de la diagonal, y U
+          es la parte superior de la diagonal. Después de eso solo despejamos
+          una x y vamos iterando con la matriz inicial
+        </p>
+        <div id="solucionJacobi">
+          <p>Ingresa el alto y ancho de la matriz</p>
+          <div class="input-group mb-3">
+            <span class="input-group-text">X</span>
+            <input type="number" id="altoJacobi" type="text" class="form-control" placeholder="alto"
+              aria-label="alto" />
+            <span class="input-group-text">Y</span>
+            <input type="number" id="anchoJacobi" type="text" class="form-control" placeholder="ancho"
+              aria-label="ancho" />
+            <button class="btn btn-success"
+              onclick="chequearMatrizCuadrada('Jacobi'), crearMatriz('Jacobi', 'resolucionJacobi'), crearAproximacion('Jacobi', 'aproxJacobi')">
+              Generar Matriz
+            </button>
+          </div>
+          <div id="aproxJacobi"></div>
+          <div id="resolucionJacobi">
+            <div id="jacobiPuesto"></div>
+          </div>
+          <div id="iteracionesJacobi"></div>
+        </div>
+      </div>
+      <div class="col-md-12">
+        <hr />
+        <p id="GaussSeidelTitulo" class="fs-3">
+          <u>Método de Gauss-Seidel</u>
+        </p>
+        <p>¿Qué es el método de Gauss-Seidel?</p>
+        <p>
+          Es un método iterativo de aproximacion igual que el de Jacobi, sirve
+          para resolver sistemas de ecuaciones lineales, tiene ciertos
+          requisitos.
+        </p>
+        <ol>
+          <li>
+            Ser diagonalmente dominante o [ simetrica y positiva definida ].
+          </li>
+        </ol>
+        <p>¿Cómo se resuelve con este metodo?</p>
+        <p>Aqui una explicación larga de esto</p>
+        <div id="solucionGaussSeidel">
+          <div class="input-group mb-3">
+            <span class="input-group-text">X</span>
+            <input type="number" id="altoGaussSeidel" type="text" class="form-control" placeholder="alto"
+              aria-label="alto" />
+            <span class="input-group-text">Y</span>
+            <input type="number" id="anchoGaussSeidel" type="text" class="form-control" placeholder="ancho"
+              aria-label="ancho" />
+            <button class="btn btn-success"
+              onclick="chequearMatrizCuadrada('GaussSeidel'), crearMatriz('GaussSeidel', 'resolucionGaussSeidel'), crearAproximacion('GaussSeidel', 'aproxGaussSeidel')">
+              Generar Matriz
+            </button>
+          </div>
+          <div id="aproxGaussSeidel"></div>
+          <div id="resolucionGaussSeidel"></div>
         </div>
       </div>
     </div>
+    <hr>
+    <div class="col-md-12">
+      <p class="fs-2"><strong>Interpolación</strong></p>
+      <p>
+        La interpolación es una técnica que se usa para la obtención de nuevos puntos partiendo de puntos que ya
+        conocemos, es como "suponer" la forma de algo por conocer ciertos puntos.
+        <img src="img/ejemploInterpolacionLinear.png" class="aimg" alt="Ejemplo de interpolación lineal">
+      <p> Acá tenemos algunos metodos no lineales para hacer interpolación, los describiré abajo</p>
+    </div>
+    <div class="col-md-12" id="t_newtonAtras">
+      <p class="fs-2">Newton atrás</p>
+      <p>
+        -Se nos da una tabla con valores de x y f(x) para hallar el valor de la funcion cuando x sea un numero dado,
+        hasta una derivada dada
+        En este caso Xp=0.161
+        -Ademas debemos verificar si la distancia entre cada numero de la columna x es equidistante, es decir, que
+        tienen la misma separación para poder usar los métodos de newton, para ello solo restamos cada miembro de la
+        columna de x(empezando desde abajo) del siguiente que le sigue, y si el resulta siempre es el mismo entonces
+        proseguimos
+        <img src="img/newtonAtras1.png" class="aimg" alt="Ejemplo de newton atras 1">
+      </p>
+      <p>
+        -Entonces siendo este el método de newton desde atrás, debemos primeramente restar la ultima f(x) con la
+        penúltima f(x), luego la penúltima con la antepenúltima y asi sucesivamente hasta que no quede otro con que
+        restar, asi completando la primera derivada
+      </p>
+      <img src="img/newtonAtras2.png" class="aimg" alt="Ejemplo de newton atras 2">
+      <p>Quedando así</p>
+      <p>-Y bueno en realidad luego debemos hacer lo mismo en la siguiente columna restando el ultimo con el penultimo,
+        luego el penultimo con el antepenultimo etc etc</p>
+      <img src="img/newtonAtras3.png" class="aimg" alt="Ejemplo de newton atras 3">
+      <p>
+        -Quedando asi la tabla, entonces debemos guardar los últimos números de cada columna empezando por f(x) y
+        terminando en 4f(x)
+        (Aquí hay que tener en cuenta que obviamente si hay mas números, seguiremos haciendo mas columnas o si nos piden
+        solo hasta cierta derivada, nos detendremos ahí, aunque para obtener los resultados mas exactos es mejor seguir
+        iterando hasta que no queden mas columnas)
+        -anotamos h que es el numero de distancia que tiene cada numero entre si en la columna de x, en este caso h =
+        0.125
+        -Efectuamos la formula para hallar P
+        Donde: P= (Xp-Xo)/h
+        Siendo Xp el valor que se nos dio al principio
+        Xo el ultimo valor de la columna x
+        h la distancia entre los valores de x
+        -Finalmente usamos la formula:
+        F(Xp)=Ultimo numero de la columna x+ (((Ultimo numero de la columna de la primera derivada)*P)/1!) + (((Ultimo
+        numero de la columna de la segunda derivada)*P*(P+1))/2!)+((Ultimo numero de la columna de la tercera
+        derivada)*P*(P+1)*(P+2))/3!) …. Y asi sucesivamente y como se muestra aumentando una multiplicación de (P+n) e
+        igualmente diviendo entre n+1!
+        -Y para hallar el error debemos primeramente solo calcular hasta la penúltima derivada y anotar ese numero,
+        luego calcular hasta la ultima derivada y anotar ese numero, para que finalmente restemos esos 2 numeros dentro
+        de un valor absoluto y tendremos el error final.
+      </p>
+      <img src="img/newtonAtras4.png" class="aimg" alt="Ejemplo de newton atras 4">
+    </div>
+    <div class="col-md-12" id="t_newtonAdelante">
+      <p class="fs-3">Newton Adelante</p>
+      <p>
+        -Se nos da una tabla con valores de x y f(x) para hallar el valor de la funcion cuando x sea un numero dado,
+        hasta una derivada dada
+        En este caso Xp-=64
+        -Ademas debemos verificar si la distancia entre cada numero de la columna x es equidistante, es decir, que
+        tienen la misma separación para poder usar los métodos de newton, para ello solo restamos cada miembro de la
+        columna de x(empezando desde arriba) del siguiente que le sigue, y si el resulta siempre es el mismo entonces
+        proseguimos
+      </p>
+      <img src="img/newtonAdelante1.png" class="aimg" alt="Ejemplo de newton adelante 1">
+      <p>
+        -Entonces siendo este el método de newton desde adelante, debemos primeramente restar la primera f(x) con la
+        segunda f(x), luego la segunda con la tercera y asi sucesivamente hasta que no quede otro con que restar, asi
+        completando la primera derivada
+      </p>
+      <img src="img/newtonAdelante2.png" class="aimg" alt="Ejemplo de newton adelante 2">
+      <p>Quedando así</p>
+      <p>
+        -Y bueno en realidad luego debemos hacer lo mismo en la siguiente columna restando el primero con el segundo,
+        luego el segundo con el tercero etc etc
+      </p>
+      <img src="img/newtonAdelante3.png" class="aimg" alt="Ejemplo de newton adelante 3">
+      <p>
+        -Quedando asi la tabla, entonces debemos guardar los primeros números de cada columna empezando por f(x) y
+        terminando en 4f(x)
+        (Aquí hay que tener en cuenta que obviamente si hay mas números, seguiremos haciendo mas columnas o si nos piden
+        solo hasta cierta derivada, nos detendremos ahí, aunque para obtener los resultados mas exactos es mejor seguir
+        iterando hasta que no queden mas columnas)
+        -anotamos h que es el numero de distancia que tiene cada numero entre si en la columna de x, en este caso h =
+        0.125
+        -Efectuamos la formula para hallar P
+        Donde: P= (Xp-Xo)/h
+        Siendo Xp el valor que se nos dio al principio
+        Xo el ultimo valor de la columna x
+        h la distancia entre los valores de x
+        -Finalmente usamos la formula:
+        F(Xp)=Primer numero de la columna x+ (((Primer numero de la columna de la primera derivada)*P)/1!) + (((Primer
+        numero de la columna de la segunda derivada)*P*(P+1))/2!)+((Primer numero de la columna de la tercera
+        derivada)*P*(P+1)*(P+2))/3!) …. Y asi sucesivamente y como se muestra aumentando una multiplicación de (P+n) e
+        igualmente diviendo entre n+1!
+        -Y para hallar el error debemos primeramente solo calcular hasta la penúltima derivada y anotar ese numero,
+        luego calcular hasta la ultima derivada y anotar ese numero, para que finalmente restemos esos 2 numeros dentro
+        de un valor absoluto y tendremos el error final.
+        <img src="img/newtonAdelante4.png" class="aimg" alt="Ejemplo de newton adelante 4">
+      </p>
+    </div>
   </div>
-  </div>
+  <br>
+  <br>
+  <br>
 </body>
 
 </html>
+<script src="onload.js"></script>
 <script>
   let procesarGaussSeidel = () => {
-    if(!chequearSiMatrizEsDominante(getArray("GaussSeidel"))){
-      alert("La matriz no tiene una diagonal dominante, intenta intercambiar las ecuaciones.");
+    if (!chequearSiMatrizEsDominante(getArray("GaussSeidel"))) {
+      alert(
+        "La matriz no tiene una diagonal dominante, intenta intercambiar las ecuaciones."
+      );
       return;
     }
     let miArray = getArray("GaussSeidel");
     let arrayEcuaciones = [];
     for (let i = 0; i < miArray.length; i++) {
-        let ecuacion = extraerEcuacionArrayAString(miArray[i]);
-        console.log(ecuacion);
-        arrayEcuaciones.push(despejarEcuacion(ecuacion, "x" + (i + 1)));
-      }
+      let ecuacion = extraerEcuacionArrayAString(miArray[i]);
+      console.log(ecuacion);
+      arrayEcuaciones.push(despejarEcuacion(ecuacion, "x" + (i + 1)));
+    }
 
-      console.log(arrayEcuaciones);
-
-  }
+    console.log(arrayEcuaciones);
+  };
 
   let chequearSiMatrizEsDominante = (array) => {
-    for(let i = 0; i < array.length; i++){
-      for(let j = 0; j < array[i].length-1; j++){ //-1 porque vamos a pasar el array con los = y no quiero chequear eso
-        if(i == j)
-        {
-            let mayorALaDerecha = 0;
-            for(let k = j+1; k < array[i].length-1; k++){ //Chequeo todo a la derecha, menos el último
-              if(array[i][k] > mayorALaDerecha){
-                mayorALaDerecha = array[i][k];
+    for (let i = 0; i < array.length; i++) {
+      for (let j = 0; j < array[i].length - 1; j++) {
+        //-1 porque vamos a pasar el array con los = y no quiero chequear eso
+        if (i == j) {
+          let mayorALaDerecha = 0;
+          for (let k = j + 1; k < array[i].length - 1; k++) {
+            //Chequeo todo a la derecha, menos el último
+            if (array[i][k] > mayorALaDerecha) {
+              mayorALaDerecha = array[i][k];
+            }
+          }
+          if (Math.abs(mayorALaDerecha) >= Math.abs(array[i][j])) {
+            console.log("La matriz no es dominante.");
+            console.log(
+              `Con valor ${mayorALaDerecha} es mayor o igual que ${array[i][j]}`
+            );
+            return false;
+          }
+          let mayorALaIzquierda = 0;
+          if (j > 0) {
+            for (let k = j - 1; k >= 0; k--) {
+              if (array[i][k] > mayorALaIzquierda) {
+                //Chequeo todo a la izquierda, si es mayor a 0 claro.
+                mayorALaIzquierda = array[i][k];
               }
             }
-            if(Math.abs(mayorALaDerecha) >= Math.abs(array[i][j])){
-              console.log("La matriz no es dominante.")
-              console.log(`Con valor ${mayorALaDerecha} es mayor o igual que ${array[i][j]}`);
-              return false;
-            }
-            let mayorALaIzquierda = 0;
-            if(j > 0){
-              for(let k = j-1; k >= 0; k--){
-                if(array[i][k] > mayorALaIzquierda){ //Chequeo todo a la izquierda, si es mayor a 0 claro.
-                  mayorALaIzquierda = array[i][k];
-
-                }
-              }
-            }
-            if(Math.abs(mayorALaIzquierda) >= Math.abs(array[i][j])){
-              console.log("La matriz no es dominante.")
-              console.log(`Con valor ${mayorALaIzquierda} es mayor o igual que ${array[i][j]}`);
-              return false;
-            }
+          }
+          if (Math.abs(mayorALaIzquierda) >= Math.abs(array[i][j])) {
+            console.log("La matriz no es dominante.");
+            console.log(
+              `Con valor ${mayorALaIzquierda} es mayor o igual que ${array[i][j]}`
+            );
+            return false;
+          }
         }
       }
     }
-    console.log("La matriz si es dominante.")
+    console.log("La matriz si es dominante.");
     return true;
-  }
+  };
   // let matrizPrueba = [[10, 8, 9, 11],
   //                     [7, 8, 2, 30],
   //                     [3, 1, 9, 40]];
   // console.log(chequearSiMatrizEsDominante(matrizPrueba));
-
-
 
   let chequearMatrizCuadrada = (nombre) => {
     if ($("#alto" + nombre).val() - $("#ancho" + nombre).val() != -1) {
       alert("Advertencia, para " + nombre + " la matriz debe ser cuadrada.");
       return;
     }
-  }
+  };
 
   let extraerEcuacionArrayAString = (array) => {
     let nArray = array.map((element, i) => {
@@ -390,20 +765,18 @@
         if (element == 0) {
           return;
         }
-
       }
       return "=" + element;
-    }
-    )
-    return nArray.join('')
-  }
+    });
+    return nArray.join("");
+  };
   let despejarEcuacion = (ecuacion, variableADespejar) => {
-        console.log(ecuacion);
-        return nerdamer.solveEquations(ecuacion, variableADespejar)[0].text();
-  }
+    console.log(ecuacion);
+    return nerdamer.solveEquations(ecuacion, variableADespejar)[0].text();
+  };
   let operarEcuacion = (ecuacion, arraySustitucion) => {
     return math.evaluate(ecuacion, arraySustitucion);
-  }
+  };
   let formatearScope = (aproximacion) => {
     let obj = {};
     for (let i = 0; i < aproximacion.length; i++) {
@@ -411,15 +784,15 @@
       obj[key] = aproximacion[i];
     }
     return obj;
-  }
+  };
   let procesarJacobi = () => {
     try {
-      if (!$("#iteracionesJacobi").is(':empty')) {
+      if (!$("#iteracionesJacobi").is(":empty")) {
         $("#iteracionesJacobi").empty();
       }
-      let aproximacion = formatearScope(getAproximacion('Jacobi'));
+      let aproximacion = formatearScope(getAproximacion("Jacobi"));
       //console.log(aproximacion);
-      let miArray = getArray('Jacobi')
+      let miArray = getArray("Jacobi");
       let error = parseFloat("1e-4");
       let maxIteraciones = 100;
       let iteraciones = 0;
@@ -428,7 +801,6 @@
       //Empiezo una nueva forma de jacobi...
       let arrayEcuaciones = [];
       for (let i = 0; i < miArray.length; i++) {
-
         let ecuacion = extraerEcuacionArrayAString(miArray[i]);
         console.log(extraerEcuacionArrayAString(miArray[i]));
         arrayEcuaciones.push(despejarEcuacion(ecuacion, "x" + (i + 1)));
@@ -439,7 +811,7 @@
       while (iteraciones < maxIteraciones) {
         let nuevo = [];
         for (let i = 0; i < arrayEcuaciones.length; i++) {
-          nuevo.push(operarEcuacion(arrayEcuaciones[i], scope))
+          nuevo.push(operarEcuacion(arrayEcuaciones[i], scope));
         }
         nuevo = formatearScope(nuevo);
         todasLasIteraciones.push(nuevo);
@@ -447,8 +819,14 @@
         console.log(scope);
         iteraciones++;
 
-        if (error > (todasLasIteraciones[iteraciones].x1 - todasLasIteraciones[iteraciones - 1].x1)) {
-          $("<p>").text("Error máximo alcanzado (1e-4)").appendTo("#iteracionesJacobi")
+        if (
+          error >
+          todasLasIteraciones[iteraciones].x1 -
+          todasLasIteraciones[iteraciones - 1].x1
+        ) {
+          $("<p>")
+            .text("Error máximo alcanzado (1e-4)")
+            .appendTo("#iteracionesJacobi");
           break;
         }
       }
@@ -460,14 +838,20 @@
         for (const [key, value] of Object.entries(todasLasIteraciones[i])) {
           estaIteracion += ` ${key}: ${value} `;
         }
-        $("<p>").html(`Iteración número ${i}: Resultado: ${estaIteracion}`).appendTo("#iteracionesJacobi")
+        $("<p>")
+          .html(`Iteración número ${i}: Resultado: ${estaIteracion}`)
+          .appendTo("#iteracionesJacobi");
         if (i > 4) break;
       }
       let ultimaIteracion = "";
-      for (const [key, value] of Object.entries(todasLasIteraciones[todasLasIteraciones.length - 1])) {
+      for (const [key, value] of Object.entries(
+        todasLasIteraciones[todasLasIteraciones.length - 1]
+      )) {
         ultimaIteracion += `${key}: ${value}`;
       }
-      $("<p>").html(`Última iteración: ${iteraciones}`).appendTo("#iteracionesJacobi");
+      $("<p>")
+        .html(`Última iteración: ${iteraciones}`)
+        .appendTo("#iteracionesJacobi");
       $("<span>")
         .attr({
           class: "badge bg-success",
@@ -477,31 +861,30 @@
       $("<p>").html(ultimaIteracion).appendTo("#iteracionesJacobi");
     } catch (err) {
       console.log(err);
-      $("<p>").text("Este sistema es irresolvible por el método de Jacobi.").appendTo("#iteracionesJacobi");
-        $("<span>")
+      $("<p>")
+        .text("Este sistema es irresolvible por el método de Jacobi.")
+        .appendTo("#iteracionesJacobi");
+      $("<span>")
         .attr({
           class: "badge bg-danger",
         })
         .text("SIN SOLUCION 😢")
         .appendTo("#iteracionesJacobi");
-
     }
-  }
-
+  };
 
   let getAproximacion = (nombre) => {
     let array = [];
     for (let i = 0; i < globales.alto; i++) {
       if ($("#aproximacion" + nombre + i).val().length != 0) {
         array.push(parseFloat($("#aproximacion" + nombre + i).val()));
-      }
-      else {
+      } else {
         alert("Tus aproximaciones no pueden ser nulas.");
         return;
       }
     }
     return array;
-  }
+  };
   let getArray = (nombre) => {
     let miArray = [];
     for (let i = 0; i < globales.alto; i++) {
@@ -516,13 +899,15 @@
       }
       miArray.push(arrayValores);
     }
-    return miArray
-  }
+    return miArray;
+  };
   let crearAproximacion = (nombre, donde) => {
-    if (!$("#" + donde).is(':empty')) {
+    if (!$("#" + donde).is(":empty")) {
       $("#" + donde).empty();
     }
-    $("<p>").html("Introduce una aproximacion").appendTo("#" + donde);
+    $("<p>")
+      .html("Introduce una aproximacion")
+      .appendTo("#" + donde);
     $("<div>")
       .attr({
         class: "input-group mb-3",
@@ -542,17 +927,20 @@
           placeholder: function () {
             return "x " + i;
           },
-        }).val("0")
+        })
+        .val("0")
         .appendTo("#aproximacion" + nombre);
     }
-  }
+  };
   // ===================================== Gauss con pivote
   const globales = {};
   let crearMatriz = (nombre, donde) => {
-    if (!$("#" + donde).is(':empty')) {
+    if (!$("#" + donde).is(":empty")) {
       $("#" + donde).empty();
     }
-    $("<p>").html("Introduce una matriz").appendTo("#" + donde);
+    $("<p>")
+      .html("Introduce una matriz")
+      .appendTo("#" + donde);
     globales.alto = $("#alto" + nombre).val();
     globales.ancho = $("#ancho" + nombre).val();
     for (let i = 0; i < globales.alto; i++) {
@@ -607,7 +995,7 @@
       .appendTo("#" + donde);
   };
   let procesarGauss = () => {
-    let miArray = getArray('Gauss');
+    let miArray = getArray("Gauss");
     let resolverMio = (matriz) => {
       let pivote = 0;
       let filas = matriz.length;
@@ -658,7 +1046,9 @@
           $("#" + i + "" + j + "Gauss").prop("disabled", true); //Lo deshabilitamos
         }
       }
-      let diagonal = matrizResuelta.map((element, i) => { return element[i] });
+      let diagonal = matrizResuelta.map((element, i) => {
+        return element[i];
+      });
       let esVerdad = true;
       for (let i = 0; i < diagonal.length; i++) {
         if (diagonal[i] != 1) {
@@ -681,8 +1071,7 @@
           })
           .text("SOLUCIÓN ENCONTRADA")
           .appendTo("#gaussMensaje");
-      }
-      else {
+      } else {
         $("#gaussMensaje").html(
           "Y las soluciones son : " +
           matrizResuelta
